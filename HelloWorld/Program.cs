@@ -6,16 +6,48 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string s1 = $"Hello, World! \n\r\t with {DateTime.Now} \n";
-            string s2 = "Hello, World 2!";
+            //f();
+            f1();
+        }
 
-            StringBuilder sb1 = new StringBuilder();
-            sb1.Append(s1);
-            sb1.Append(s2);
+        static void f()
+        {
+            //int[,] _2DArr =
+            //{
+            //    { 1, 2, 3 },
+            //    { 4, 5, 6 },
+            //    { 7, 8, 9 }
+            //};
+            //Console.WriteLine(_2DArr[1, 1]);
 
-            Console.WriteLine(sb1.ToString());
+            int[,,] _3DArr =
+            {
+                {
+                    { 1, 2, 3 },
+                    { 4, 5, 6 },
+                    { 7, 8, 9 }
+                },
+                {
+                    { 10, 11, 12 },
+                    { 13, 14, 15 },
+                    { 16, 17, 18 }
+                },
+                {
+                    { 19, 20, 21 },
+                    { 22, 23, 24 },
+                    { 25, 26, 27 }
+                }
+            };
+            Console.WriteLine(_3DArr[1, 1, 1]);
+        }
 
-            var x = "";
+        static void f1()
+        {
+            int[][] mn = new int[3][];
+            mn[0] = new int[] { 1, 2, 3 };
+
+            Console.WriteLine(mn[0][1]); // Valid
+            Console.WriteLine(mn[1][2]); // Invalid, mn[1] is null and will throw a NullReferenceException
         }
     }
 }
