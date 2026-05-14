@@ -7,7 +7,60 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             //f();
-            f1();
+            //f1();
+
+            //Collection pratice
+            List<string> names = new List<string>();
+
+            ReadString(names);
+            Print(names);
+            Sort(names);
+            Print(names);
+        }
+
+        private static void Sort(List<string> names)
+        {
+            names.Sort();
+        }
+
+        private static void Print(List<string> names)
+        {
+            foreach(var name in names)
+            {
+                Console.WriteLine(name);
+            }
+            Console.WriteLine("");
+        }
+
+        private static void ReadString(List<string> names)
+        {
+            // use command: /bin/Debug/net8.0/HelloWorld.exe < input.txt
+            string? s;
+            do
+            {
+                s = Console.ReadLine();
+                if (!string.IsNullOrEmpty(s))
+                {
+                    names.Add(s);
+                }
+            }
+            while (!string.IsNullOrEmpty(s));
+
+            /*
+            string inputPath = @"input.txt";
+            var lines = File.OpenRead(inputPath);
+            using (var reader = new StreamReader(lines, Encoding.UTF8))
+            {
+                string? line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        names.Add(line);
+                    }
+                }
+            }
+            */
         }
 
         static void f()
