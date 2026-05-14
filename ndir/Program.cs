@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            /*
             var path = "C:\\Users\\ADMIN\\Downloads";
 
             /// summary
@@ -37,7 +38,24 @@
             {
                 Console.WriteLine($"{f.LastWriteTime:MM/dd/yyyy} {f.LastWriteTime.ToString("HH:mm")}     {f.Length:#,###}    {f.Name}");
             }
+            */
+            displayDirectoryStructureInTreeFormat("C:\\LK's Workspace\\CMC\\learn");
+        }
 
+        static void displayDirectoryStructureInTreeFormat(string path, string indent = "")
+        {
+            var dir = new DirectoryInfo(path);
+            var directories = dir.GetDirectories();
+            var files = dir.GetFiles();
+            foreach (var d in directories)
+            {
+                Console.WriteLine($"{indent}├── {d.Name}");
+                displayDirectoryStructureInTreeFormat(d.FullName, indent + "│   ");
+            }
+            foreach (var f in files)
+            {
+                Console.WriteLine($"{indent}├── {f.Name}");
+            }
         }
     }
 }
