@@ -8,16 +8,20 @@
             Func<int, int, string> sum = (int x, int y) => (x + y).ToString();
             Console.WriteLine(sum(5, 10)); // Output: 15
 
-            // statement lambda
             var upper = (string s) => Console.WriteLine(s.ToUpper());
             upper("hello world"); // Output: HELLO WORLD
 
-            Action<string> greet = (string name) =>
+            Action<int> print = x => Console.WriteLine(x);
+
+            // statement lambda
+            Func<int, int> square2 = x => { return x * 2; };
+
+            Action<string, string> greet = (string name, string sex) =>
             {
-                string greeting = $"Hello, {name}!";
+                string greeting = $"Hello, {name} - {sex}!";
                 Console.WriteLine(greeting);
             };
-            greet("Alice"); // Output: Hello, Alice!
+            greet("Alice", "female"); // Output: Hello, Alice - female!
         }
     }
 }
